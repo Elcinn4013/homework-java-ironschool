@@ -1,4 +1,4 @@
-package org.example.ironschool.model;
+package com.ironhack.ironschool.model;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
