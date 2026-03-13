@@ -7,16 +7,19 @@ import jakarta.validation.constraints.Positive;
 
 public class Teacher {
 
-    private int counter = 1;
+    private static int counter = 1;
     private String teacherId;
 
     @NotBlank
     private String name;
 
-    @Min(value = 400 , message = "Minimum salary for Azerbaijan is 400 azn . Salary cant be less than 400 azn")
-    private double salary;
+    @Min(value = 400, message = "Minimum salary for Azerbaijan is 400 azn. Salary can't be less than 400 azn")
+    private Double salary;
 
-    public Teacher(String name , double Salary ) {
+    public Teacher() {
+    }
+
+    public Teacher(String name, Double salary) {
         this.name = name;
         this.salary = salary;
         this.teacherId = "T" + counter++;
@@ -31,11 +34,11 @@ public class Teacher {
         this.name = name;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 

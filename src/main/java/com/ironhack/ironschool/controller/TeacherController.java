@@ -32,8 +32,24 @@ public class TeacherController {
     }
 
     @DeleteMapping("/{teacherId}")
-    public void deleteStudent(String teacherId){
+    public void deleteStudent(@PathVariable String teacherId){
         teacherService.deleteTeacher(teacherId);
+    }
+
+    @PutMapping("/{teacherId}")
+    public Teacher updateTeacher(
+            @PathVariable String teacherId,
+            @RequestBody @Valid Teacher teacher
+    ) {
+        return teacherService.updateTeacher(teacherId, teacher);
+    }
+
+    @PatchMapping("/{teacherId}")
+    public Teacher partialUpdateTeacher(
+            @PathVariable String teacherId,
+            @RequestBody Teacher teacher
+    ) {
+        return teacherService.partialUpdate(teacherId, teacher);
     }
 
 }

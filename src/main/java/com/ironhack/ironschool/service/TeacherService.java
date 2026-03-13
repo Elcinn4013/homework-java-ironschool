@@ -48,4 +48,34 @@ public class TeacherService {
 
         return total;
     }
+
+    public Teacher updateTeacher(String teacherId , Teacher updatedTeacher){
+        Teacher existing = getTeacherById(teacherId);
+
+        existing.setSalary(updatedTeacher.getSalary());
+        existing.setName(updatedTeacher.getName());
+
+        return existing;
+
+    }
+
+    public Teacher partialUpdate(String teacherId , Teacher updatedTeacher){
+        Teacher existing = getTeacherById(teacherId);
+
+        //We write validation so it cant be null
+
+//        if(updatedTeacher.getSalary() != null){
+//            existing.setSalary(updatedTeacher.getSalary());
+//        }
+//I change type double --> Double
+        if(updatedTeacher.getName() != null){
+            existing.setName(updatedTeacher.getName());
+        }
+
+        if (updatedTeacher.getSalary() != null) {
+            existing.setSalary(updatedTeacher.getSalary());
+        }
+
+        return existing;
+    }
 }

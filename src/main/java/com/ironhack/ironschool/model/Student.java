@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class Student {
-    private int counter = 1;
+    private static int counter = 1;
     private String studentId;
 
 

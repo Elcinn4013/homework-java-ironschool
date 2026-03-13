@@ -33,7 +33,7 @@ public class CourseController {
     }
 
     @DeleteMapping("/{courseId}")
-    public void deleteCourse(String courseId){
+    public void deleteCourse(@PathVariable String courseId){
         courseService.deleteCourse(courseId);
     }
 
@@ -41,9 +41,9 @@ public class CourseController {
     public  void assignTeacherToCourse(@PathVariable String courseId,@PathVariable String teacherId){
         courseService.assignTeacherToCourse(teacherId,courseId);
     }
-    @PutMapping("{courseId}/students/{studentId}")
+    @PatchMapping("{courseId}/students/{studentId}")
     public  void enrollStudent(@PathVariable String courseId , @PathVariable String studentId){
-        courseService.assignTeacherToCourse(studentId,courseId);
+        courseService.enrollStudent(studentId,courseId);
     }
 
     @GetMapping("/total-money")

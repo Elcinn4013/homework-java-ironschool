@@ -31,8 +31,18 @@ public class StudentController {
     }
 
     @DeleteMapping("/{studentId}")
-    public void deleteStudent(String studentId){
+    public void deleteStudent(@PathVariable String studentId){
         studentService.deleteStudent(studentId);
+    }
+
+    @PutMapping("/{studentId}")
+    public Student updateStudent(@PathVariable String studentId , @RequestBody @Valid Student student){
+        return studentService.updateStudent(studentId, student);
+    }
+
+    @PatchMapping("/{studentId}")
+    public  Student patchStudent(@PathVariable String studentId , @RequestBody @Valid Student student){
+        return studentService.patchStudent(studentId, student);
     }
 
 }
